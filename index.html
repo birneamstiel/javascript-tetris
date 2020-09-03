@@ -43,6 +43,9 @@
 
   <div id="tetris">
     <div id="menu">
+      <img id="foam"
+           src="foam_block.png"
+           width="50" height="50">
       <p id="start"><a href="javascript:play();">Press Space to Play.</a></p>
       <p><canvas id="upcoming"></canvas></p>
       <p>score <span id="score">00000</span></p>
@@ -110,6 +113,8 @@
         nx      = 10, // width of tetris court (in blocks)
         ny      = 20, // height of tetris court (in blocks)
         nu      = 5;  // width/height of upcoming preview (in blocks)
+
+    const foamBlock   =  document.getElementById('foam');
 
     //-------------------------------------------------------------------------
     // game variables (initialized during reset)
@@ -463,6 +468,9 @@
     }
 
     function drawBlock(ctx, x, y, color) {
+      ctx.drawImage(foamBlock, x * dx, y * dy);
+      return;
+
       ctx.fillStyle = color;
       ctx.fillRect(x*dx, y*dy, dx, dy);
       ctx.strokeRect(x*dx, y*dy, dx, dy)
