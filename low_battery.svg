@@ -9,8 +9,10 @@
 	.st1{fill:none;stroke:#FFFFFF;stroke-width:16;stroke-miterlimit:3.2;}
 	.st2{fill:#FFFFFF;stroke:#FFFFFF;stroke-miterlimit:10;}
 	.st3{fill:#FFFFFF;}
+	.st4{font-family:'VCROSDMono';}
+	.st5{font-size:58.1415px;}
 </style>
-<rect class="st0" width="550.7" height="397"/>
+<rect y="0" class="st0" width="550.7" height="397"/>
 <sodipodi:namedview  bordercolor="#666666" borderopacity="1.0" id="base" inkscape:current-layer="layer1" inkscape:cx="235.54174" inkscape:cy="221.00855" inkscape:document-units="px" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:window-height="1017" inkscape:window-maximized="1" inkscape:window-width="1920" inkscape:window-x="-8" inkscape:window-y="116" inkscape:zoom="0.35" pagecolor="#ffffff" showgrid="false">
 	</sodipodi:namedview>
 <path id="rect4700" class="st1" d="M430,112.9v170.3c0,12.6-10.2,22.9-22.9,22.9H137.4c-12.6,0-22.9-10.2-22.9-22.9V112.9
@@ -18,4 +20,5 @@
 <path id="rect4702" class="st2" d="M447,172.7v55.6c0,2.2-2.8,4-6.3,4l0,0c-3.5,0-6.3-1.8-6.3-4v-55.6c0-2.2,2.8-4,6.3-4l0,0
 	C444.2,168.6,447,170.4,447,172.7z"/>
 <rect id="rect4704" x="143.2" y="112.9" class="st3" width="57.1" height="170.3"/>
+<text transform="matrix(1 0 0 1 87.9797 376.5089)" class="st3 st4 st5">STEP IT UP!</text>
 </svg>
