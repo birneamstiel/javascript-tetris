@@ -12,7 +12,21 @@
 	.st4{font-family:'VCROSDMono';}
 	.st5{font-size:58.1415px;}
 </style>
-<rect y="0" class="st0" width="550.7" height="397"/>
+<font horiz-adv-x="2048">
+<!-- Copyright: Copyright 2020 Adobe System Incorporated. All rights reserved. -->
+<font-face font-family="VCROSDMono" units-per-em="2048" underline-position="-217" underline-thickness="150"/>
+<missing-glyph horiz-adv-x="1200" d="M151,100l891,0l-445,701M1100,195l0,1399l-444,-700M100,1583l0,-1377l437,688M0,1800l1200,0l0,-1800l-1200,0M1049,1700l-903,0l451,-712z"/>
+<glyph unicode=" " horiz-adv-x="1200"/>
+<glyph unicode="!" horiz-adv-x="1200" d="M600,300l0,-200l-200,0l0,200M600,500l-200,0l0,1000l200,0z"/>
+<glyph unicode="E" horiz-adv-x="1200" d="M1100,1500l0,-200l-800,0l0,-400l600,0l0,-200l-600,0l0,-400l800,0l0,-200l-1000,0l0,1400z"/>
+<glyph unicode="I" horiz-adv-x="1200" d="M300,100l0,200l200,0l0,1000l-200,0l0,200l600,0l0,-200l-200,0l0,-1000l200,0l0,-200z"/>
+<glyph unicode="P" horiz-adv-x="1200" d="M300,1300l0,-400l500,0l0,100l100,0l0,200l-100,0l0,100M300,700l0,-600l-200,0l0,1400l800,0l0,-100l100,0l0,-100l100,0l0,-400l-100,0l0,-100l-100,0l0,-100z"/>
+<glyph unicode="S" horiz-adv-x="1200" d="M1000,1300l100,0l0,-200l-200,0l0,100l-100,0l0,100l-400,0l0,-100l-100,0l0,-200l100,0l0,-100l500,0l0,-100l100,0l0,-100l100,0l0,-400l-100,0l0,-100l-100,0l0,-100l-600,0l0,100l-100,0l0,100l-100,0l0,200l200,0l0,-100l100,0l0,-100l400,0l0,100l100,0l0,200l-100,0l0,100l-500,0l0,100l-100,0l0,100l-100,0l0,400l100,0l0,100l100,0l0,100l600,0l0,-100l100,0z"/>
+<glyph unicode="T" horiz-adv-x="1200" d="M500,1300l-400,0l0,200l1000,0l0,-200l-400,0l0,-1200l-200,0z"/>
+<glyph unicode="U" horiz-adv-x="1200" d="M200,300l-100,0l0,1200l200,0l0,-1100l100,0l0,-100l400,0l0,100l100,0l0,1100l200,0l0,-1200l-100,0l0,-100l-100,0l0,-100l-600,0l0,100l-100,0z"/>
+</font>
+
+	<rect y="0" class="st0" width="550.7" height="397"/>
 <sodipodi:namedview  bordercolor="#666666" borderopacity="1.0" id="base" inkscape:current-layer="layer1" inkscape:cx="235.54174" inkscape:cy="221.00855" inkscape:document-units="px" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:window-height="1017" inkscape:window-maximized="1" inkscape:window-width="1920" inkscape:window-x="-8" inkscape:window-y="116" inkscape:zoom="0.35" pagecolor="#ffffff" showgrid="false">
 	</sodipodi:namedview>
 <path id="rect4700" class="st1" d="M430,112.9v170.3c0,12.6-10.2,22.9-22.9,22.9H137.4c-12.6,0-22.9-10.2-22.9-22.9V112.9
