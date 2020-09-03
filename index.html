@@ -44,9 +44,14 @@
 
   <div id="tetris">
     <div id="menu">
-      <img id="foam"
-           src="foam_block.png"
-           width="50" style="display: none;">
+      <img id="cyan" src="foam_block_gray.png" width="50" style="display: none;">
+      <img id="blue" src="foam_block_blue.png" width="50" style="display: none;">
+      <img id="orange" src="foam_block_orange.png" width="50" style="display: none;">
+      <img id="yellow" src="foam_block_yellow.png" width="50" style="display: none;">
+      <img id="green" src="foam_block_green.png" width="50" style="display: none;">
+      <img id="purple" src="foam_block_purple.png" width="50" style="display: none;">
+      <img id="red" src="foam_block_red.png" width="50" style="display: none;">
+
       <p id="start"><a href="javascript:play();">Press Space to Play.</a></p>
       <p><canvas id="upcoming"></canvas></p>
       <p>score <span id="score">00000</span></p>
@@ -115,7 +120,14 @@
         ny      = 20, // height of tetris court (in blocks)
         nu      = 5;  // width/height of upcoming preview (in blocks)
 
-    const foamBlock   =  document.getElementById('foam');
+    const cyan   =  document.getElementById('cyan');
+    const blue   =  document.getElementById('blue');
+    const orange   =  document.getElementById('orange');
+    const yellow   =  document.getElementById('yellow');
+    const green   =  document.getElementById('green');
+    const purple   =  document.getElementById('purple');
+    const red   =  document.getElementById('red');
+
     const battery   =  document.getElementById('battery');
 
     //-------------------------------------------------------------------------
@@ -476,7 +488,32 @@
     }
 
     function drawBlock(ctx, x, y, color) {
-      ctx.drawImage(foamBlock, x * dx, y * dy);
+      let img;
+      switch (color) {
+        case 'cyan':
+          img = cyan;
+          break;
+        case 'blue':
+          img = blue;
+          break;
+        case 'orange':
+          img = orange;
+          break;
+        case 'yellow':
+          img = yellow;
+          break;
+        case 'green':
+          img = green;
+          break;
+        case 'purple':
+          img = green;
+          break;
+        case 'red':
+          img = green;
+          break;
+      }
+
+      ctx.drawImage(img, x * dx, y * dy);
       return;
 
       ctx.fillStyle = color;
