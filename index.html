@@ -2,7 +2,11 @@
 <html>
 <head>
   <title>Javascript Tetris</title>
-  <style>
+  <script src="https://cdn.rawgit.com/sarathsaleem/grained/master/grained.js">
+  </script>
+
+
+    <style>
     body      { font-family: Helvetica, sans-serif; }
     #tetris   { margin: 1em auto; padding: 1em; border: 4px solid black; border-radius: 10px; background-color: #F8F8F8; }
     #stats    { display: inline-block; vertical-align: top; }
@@ -39,6 +43,21 @@
   </div>
 
   <script src="stats.js"></script>
+
+  <script>
+    var options = {
+      animate: true,
+      patternWidth: 1000,
+      patternHeight: 1000,
+      grainOpacity: 0.05,
+      grainDensity: 3,
+      grainWidth: 5,
+      grainHeight: 5
+    };
+
+    grained('#tetris', options);
+  </script>
+
   <script>
 
     //-------------------------------------------------------------------------
