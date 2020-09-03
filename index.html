@@ -5,7 +5,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 
     <style>
-    body      { font-family: Helvetica, sans-serif; margin: 0; height: 100%; }
+    body      { font-family: Bangers, sans-serif; margin: 0; height: 100%; }
     #tetris   { display: block; padding: 1em; background-color: #F8F8F8; }
     #stats    { display: block; margin: 0 auto; }
     #canvas   { display: block; vertical-align: top; box-shadow: 10px 10px 10px #999; border: 2px solid #333; margin: 0 auto; }
@@ -18,7 +18,9 @@
     #battery { position: absolute; top: 10%; left: 50%; width: 500px; transform: translate(-50%, 0); z-index: 500;}
     #tetris.no-before:before{content:none;}
 
-    #noiseOverlay{ position: absolute; width: 100%; height: 100vh; opacity: 50%; }
+    #noiseOverlay{ position: absolute; width: 100%; height: 100vh; opacity: 0%; }
+
+    @font-face { font-family: 'Bangers'; src: url('Bangers-Regular.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */}
 
     .blinking{
       animation:blinking 1.0s infinite;
@@ -210,7 +212,7 @@
 
     function run() {
 
-      showStats(); // initialize FPS counter
+      // showStats(); // initialize FPS counter
       addEvents(); // attach keydown and resize events
 
       var last = now = timestamp();
