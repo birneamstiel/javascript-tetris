@@ -2,9 +2,8 @@
 <html>
 <head>
   <title>Javascript Tetris</title>
-  <script src="https://cdn.rawgit.com/sarathsaleem/grained/master/grained.js">
-  </script>
-
+  <script src="https://cdn.rawgit.com/sarathsaleem/grained/master/grained.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 
     <style>
     body      { font-family: Helvetica, sans-serif; }
@@ -18,6 +17,8 @@
     #score    { color: red; font-weight: bold; vertical-align: middle; }
     #rows     { color: blue; font-weight: bold; vertical-align: middle; }
     #battery { position: absolute; top: 10%; left: 50%; width: 500px; transform: translate(-50%, 0);}
+    #tetris.no-before:before{content:none;}
+
     .blinking{
       animation:blinking 1.0s infinite;
     }
@@ -45,7 +46,7 @@
     <div id="menu">
       <img id="foam"
            src="foam_block.png"
-           width="50" height="50">
+           width="50" style="display: none;">
       <p id="start"><a href="javascript:play();">Press Space to Play.</a></p>
       <p><canvas id="upcoming"></canvas></p>
       <p>score <span id="score">00000</span></p>
@@ -102,7 +103,7 @@
     // game constants
     //-------------------------------------------------------------------------
 
-    var KEY     = { ESC: 27, SPACE: 32, LEFT: 37, UP: 38, RIGHT: 39, DOWN: 40 },
+    var KEY     = { ESC: 27, SPACE: 32, LEFT: 37, UP: 38, RIGHT: 39, DOWN: 40, G: 80 },
         DIR     = { UP: 0, RIGHT: 1, DOWN: 2, LEFT: 3, MIN: 0, MAX: 3 },
         stats   = new Stats(),
         canvas  = get('canvas'),
@@ -115,6 +116,7 @@
         nu      = 5;  // width/height of upcoming preview (in blocks)
 
     const foamBlock   =  document.getElementById('foam');
+    const battery   =  document.getElementById('battery');
 
     //-------------------------------------------------------------------------
     // game variables (initialized during reset)
@@ -263,6 +265,12 @@
         play();
         handled = true;
       }
+      if (ev.keyCode == KEY.G) {
+        disableLowPower();
+        setTimeout(()=>{enableLowPower()}, 5000)
+        handled = true;
+      }
+
       if (handled)
         ev.preventDefault(); // prevent arrow keys from scrolling the page (supported in IE9+ and all other browsers)
     }
@@ -481,6 +489,17 @@
     //-------------------------------------------------------------------------
 
     run();
+
+
+    function enableLowPower() {
+      $('#tetris').removeClass('no-before');
+      battery.style.display = "block";
+    }
+
+    function disableLowPower() {
+      $('#tetris').addClass('no-before');
+      battery.style.display = "none";
+    }
 
   </script>
 
