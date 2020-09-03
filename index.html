@@ -6,17 +6,17 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 
     <style>
-    body      { font-family: Helvetica, sans-serif; }
-    #tetris   { margin: 1em auto; padding: 1em; border: 4px solid black; border-radius: 10px; background-color: #F8F8F8; }
-    #stats    { display: inline-block; vertical-align: top; }
-    #canvas   { display: inline-block; vertical-align: top; box-shadow: 10px 10px 10px #999; border: 2px solid #333; }
-    #menu     { display: inline-block; vertical-align: top; position: relative; }
+    body      { font-family: Helvetica, sans-serif; margin: 0; height: 100%; }
+    #tetris   { display: block; padding: 1em; background-color: #F8F8F8; }
+    #stats    { display: block; margin: 0 auto; }
+    #canvas   { display: block; vertical-align: top; box-shadow: 10px 10px 10px #999; border: 2px solid #333; margin: 0 auto; }
+    #menu     { display: block; margin: 0 auto; vertical-align: top; position: relative; }
     #menu p   { margin: 0.5em 0; text-align: center; }
     #menu p a { text-decoration: none; color: black; }
     #upcoming { display: block; margin: 0 auto; background-color: #E0E0E0; }
     #score    { color: red; font-weight: bold; vertical-align: middle; }
     #rows     { color: blue; font-weight: bold; vertical-align: middle; }
-    #battery { position: absolute; top: 10%; left: 50%; width: 500px; transform: translate(-50%, 0);}
+    #battery { position: absolute; top: 10%; left: 50%; width: 500px; transform: translate(-50%, 0); z-index: 500;}
     #tetris.no-before:before{content:none;}
 
     .blinking{
@@ -29,7 +29,7 @@
       100% { opacity: 0; }
     }
 
-    #stats    { position: absolute; bottom: 0em; right: 1em; }
+    #stats    { }
     @media screen and (min-width:   0px) and (min-height:   0px)  { #tetris { font-size: 0.75em; width: 250px; } #menu { width: 100px; height: 200px; } #upcoming { width:  50px; height:  50px; } #canvas { width: 100px; height: 200px; } } /* 10px chunks */
     @media screen and (min-width: 400px) and (min-height: 400px)  { #tetris { font-size: 1.00em; width: 350px; } #menu { width: 150px; height: 300px; } #upcoming { width:  75px; height:  75px; } #canvas { width: 150px; height: 300px; } } /* 15px chunks */
     @media screen and (min-width: 500px) and (min-height: 500px)  { #tetris { font-size: 1.25em; width: 450px; } #menu { width: 200px; height: 400px; } #upcoming { width: 100px; height: 100px; } #canvas { width: 200px; height: 400px; } } /* 20px chunks */
@@ -37,28 +37,27 @@
     @media screen and (min-width: 700px) and (min-height: 700px)  { #tetris { font-size: 1.75em; width: 650px; } #menu { width: 300px; height: 600px; } #upcoming { width: 150px; height: 150px; } #canvas { width: 300px; height: 600px; } } /* 30px chunks */
     @media screen and (min-width: 800px) and (min-height: 800px)  { #tetris { font-size: 2.00em; width: 750px; } #menu { width: 350px; height: 700px; } #upcoming { width: 175px; height: 175px; } #canvas { width: 350px; height: 700px; } } /* 35px chunks */
     /*@media screen and (min-width: 900px) and (min-height: 900px)  { #tetris { font-size: 2.25em; width: 850px; } #menu { width: 400px; height: 800px; } #upcoming { width: 200px; height: 200px; } #canvas { width: 400px; height: 800px; } } !* 40px chunks *!*/
-    @media screen and (min-width: 900px) and (min-height: 900px)  { #tetris { font-size: 2.25em; width: 950px; } #menu { width: 400px; height: 800px; } #upcoming { width: 250px; height: 250px; } #canvas { width: 500px; height: 1000px; } } /* 50px chunks */
+    @media screen and (min-width: 900px) and (min-height: 900px)  { #tetris { font-size: 2.25em; width: 100%; height: 100%;  } #menu { width: 400px; height: 200px; } #upcoming { width: 250px; height: 250px; } #canvas { width: 800px; height: 1600px; } } /* 80px chunks */
   </style>
 </head>
 
 <body>
 
   <div id="tetris">
-    <div id="menu">
-      <img id="cyan" src="foam_block_gray.png" width="40" style="display: none;">
-      <img id="blue" src="foam_block_blue.png" width="40" style="display: none;">
-      <img id="orange" src="foam_block_orange.png" width="40" style="display: none;">
-      <img id="yellow" src="foam_block_yellow.png" width="40" style="display: none;">
-      <img id="green" src="foam_block_green.png" width="40" style="display: none;">
-      <img id="purple" src="foam_block_purple.png" width="40" style="display: none;">
-      <img id="red" src="foam_block_red.png" width="40" style="display: none;">
-
-      <p id="start"><a href="javascript:play();">Press Space to Play.</a></p>
-      <p><canvas id="upcoming"></canvas></p>
-      <p>score <span id="score">00000</span></p>
-      <p>rows <span id="rows">0</span></p>
-    </div>
+    <img id="cyan" src="foam_block_gray.png" width="40" style="display: none;">
+    <img id="blue" src="foam_block_blue.png" width="40" style="display: none;">
+    <img id="orange" src="foam_block_orange.png" width="40" style="display: none;">
+    <img id="yellow" src="foam_block_yellow.png" width="40" style="display: none;">
+    <img id="green" src="foam_block_green.png" width="40" style="display: none;">
+    <img id="purple" src="foam_block_purple.png" width="40" style="display: none;">
+    <img id="red" src="foam_block_red.png" width="40" style="display: none;">
     <img id="battery" class="blinking" src="low_battery.svg">
+    <div id="menu">
+<!--      <p id="start"><a href="javascript:play();">Press Space to Play.</a></p>-->
+      <p style="display: none;"><canvas id="upcoming"></canvas></p>
+      <p>score <span id="score">00000</span> rows <span id="rows">0</span></p>
+    </div>
+    <br/>
     <canvas id="canvas">
       Sorry, this example cannot be run because your browser does not support the &lt;canvas&gt; element
     </canvas>
@@ -67,15 +66,15 @@
   <script src="stats.js"></script>
 
   <script>
-    var options = {
-      animate: true,
-      patternWidth: 1000,
-      patternHeight: 1000,
-      grainOpacity: 0.05,
-      grainDensity: 3,
-      grainWidth: 5,
-      grainHeight: 5
-    };
+      var options = {
+          "animate": true,
+          "patternWidth": 409.83,
+          "patternHeight": 355.8,
+          "grainOpacity": 0.42,
+          "grainDensity": 4.57,
+          "grainWidth": 4.77,
+          "grainHeight": 4.77
+      }
 
     grained('#tetris', options);
   </script>
@@ -292,8 +291,17 @@
     // GAME LOGIC
     //-------------------------------------------------------------------------
 
-    function play() { hide('start'); reset();          playing = true;  }
-    function lose() { show('start'); setVisualScore(); playing = false; }
+    function play() {
+      // hide('start');
+      reset();
+      playing = true;
+    }
+
+    function lose() {
+      // show('start');
+      setVisualScore();
+      playing = false;
+    }
 
     function setVisualScore(n)      { vscore = n || score; invalidateScore(); }
     function setScore(n)            { score = n; setVisualScore(n);  }
@@ -510,7 +518,7 @@
           img = green;
           break;
         case 'red':
-          img = green;
+          img = red;
           break;
       }
 
