@@ -16,6 +16,7 @@
     #score    { color: red; font-weight: bold; vertical-align: middle; }
     #rows     { color: blue; font-weight: bold; vertical-align: middle; }
     #battery { position: absolute; top: 10%; left: 50%; width: 500px; transform: translate(-50%, 0); z-index: 500;}
+    #gameOver { visibility: hidden; text-align: center; position: absolute; top: 300px; width: 100%; font-size: 10em; }
     #tetris.no-before:before{content:none;}
 
     #noiseOverlay{ position: absolute; width: 100%; height: 100vh; opacity: 0%; }
@@ -55,11 +56,12 @@
     <img id="purple" src="foam_block_purple.png" width="40" style="display: none;">
     <img id="red" src="foam_block_red.png" width="40" style="display: none;">
     <img id="battery" class="blinking" src="low_battery.svg">
+    <div id="gameOver"> GAME OVER</div>
     <div id="menu">
 <!--      <p id="start"><a href="javascript:play();">Press Space to Play.</a></p>-->
       <p style="display: none;"><canvas id="upcoming"></canvas></p>
       <br/>
-      
+      <br/>
       <p>score <span id="score">00000</span> rows <span id="rows">0</span></p>
     </div>
     <br/>
@@ -78,7 +80,7 @@
 
     function get(id)        { return document.getElementById(id);  }
     function hide(id)       { get(id).style.visibility = 'hidden'; }
-    function show(id)       { get(id).style.visibility = null;     }
+    function show(id)       { get(id).style.visibility = 'visible';     }
     function html(id, html) { get(id).innerHTML = html;            }
 
     function timestamp()           { return new Date().getTime();                             }
@@ -285,13 +287,13 @@
     //-------------------------------------------------------------------------
 
     function play() {
-      // hide('start');
+      hide('gameOver');
       reset();
       playing = true;
     }
 
     function lose() {
-      // show('start');
+      show('gameOver');
       window.setTimeout(play, 10000);
       setVisualScore();
       playing = false;
